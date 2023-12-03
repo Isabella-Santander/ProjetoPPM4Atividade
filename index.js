@@ -3,7 +3,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 
-const porta = 4000;
+const porta = 3000;
 const host =  '0.0.0.0';
 
 var listaUsuarios = [];

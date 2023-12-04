@@ -22,9 +22,94 @@ function processarCadastroUsuario(requisicao, resposta){
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Cadastro Aluno</title>
+            <title>Cadastro de Usuário</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+            <style>
 
+      body{
+        background-color: #d6e9eb;
+      }
+        .content{
+          width: 500px;
+          min-height: 560px;    
+          margin: 0px auto;
+          position: relative;
+          
+          
+        }
+       
+        h1{
+            font-size: 48px;
+            color: #066a75;
+            padding: 2px 0 10px 0;
+            font-family: Arial,sans-serif;
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 30px;
+          }
+        h1:after{
+              content: ' ';
+              display: block;
+              width: 100%;
+              height: 2px;
+              margin-top: 10px;
+              background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+              background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+            }
+        label{
+              color: #405c60;
+              position: relative;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 25px;
+          }
+          input {
+              outline: none;
+              width: 500px;
+              margin-top: 4px;
+              padding: 10px;    
+              border: 1px solid #b2b2b2;
+              size: 100;
+            
+              -webkit-border-radius: 3px;
+              border-radius: 3px;
+            
+              -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+              box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+            
+              -webkit-transition: all 0.2s linear;
+              transition: all 0.2s linear;
+            }
+            select{
+              outline: none;
+              width: 95%;
+              margin-top: 4px;
+              padding: 10px;    
+              border: 1px solid #b2b2b2;
+            
+              -webkit-border-radius: 3px;
+              border-radius: 3px;
+            
+              -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+              box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+            
+              -webkit-transition: all 0.2s linear;
+              transition: all 0.2s linear;
+            }
+            button{
+              width: 100%!important;
+              cursor: pointer;  
+              padding: 8px 5px;
+              font-size: 20px;  
+              border: 1px solid #fff;   
+              margin-bottom: 10px;  
+              text-shadow: 0 1px 1px #333;
+            
+              -webkit-border-radius: 5px;
+              border-radius: 5px;
+            
+              transition: all 0.2s linear;
+            }
+            </style>
         </head>
         <body>
             <div class="container col-4">
@@ -32,7 +117,7 @@ function processarCadastroUsuario(requisicao, resposta){
                 <fieldset class="border p-2 mt-2">
 
                     <div class="title text-center">
-                        <legend class="mb-3" style="color: green;"><b>Cadastro de Alunos</b></legend>
+                        <legend class="mb-3" style="color: #066a75;"><b>Cadastro de Usuário</b></legend>
                     </div>
 
                     <div class="col-md-6">
@@ -127,8 +212,8 @@ function processarCadastroUsuario(requisicao, resposta){
         }
         conteudoResposta+=`
                         <div class="mb-3">
-                            <label for="obs" class="form-label">Observações</label>
-                            <textarea class="form-control" id="obs" name="obs" value="${dados.obs}" placeholder="ex: cursos, experiências, etc..." rows="4" required></textarea>
+                            <label for="obs" class="form-label">Experiências Profissionais</label>
+                            <textarea class="form-control" id="obs" name="obs" value="${dados.obs}" placeholder="Informe aqui suas experiências profissionais na área de informática..." rows="4" required></textarea>
                         </div>`;
         if(!dados.obs){
         conteudoResposta+=`
@@ -176,11 +261,11 @@ function processarCadastroUsuario(requisicao, resposta){
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Alunos Cadastrados</title>
+                <title>Usuários Cadastrados</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             </head>
             <body>
-                <h1 style="color: green; text-align: center;">Lista de Alunos cadastrados</h1>
+                <h1 style="color: #066a75; text-align: center;">Lista de Usuários Cadastrados</h1>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -262,12 +347,18 @@ app.get('/', autenticar, (requisicao, resposta) =>{
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Menu do Sistema</title>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        </head>
+            <style>
+                body{ background-color: #d6e9eb;}
+                h1{font-size: 48px; color: #066a75; font-weight: bold; text-align: center;}
+                a{font-size: 30px; color: #405c60; text-align: center;}
+                p{text-align: center;}
+                </style>
+            </head>
         <body>
-        <div class="col-4">
+        <div>
             <h1>Menu</h1>
             <nav class="nav flex-column">
-                <a style="font-size: 30px;" class="nav-link" href="/cadastroUsuario.html">Cadastrar Aluno</a>
+                <a class="nav-link" href="/cadastroUsuario.html">Cadastrar Usuários</a>
             </nav>
         </div>    
         </body>
@@ -292,7 +383,7 @@ app.post('/login', (requisicao, resposta)=>{
                     <meta charset="UTF-8">
                     <title>Falha na autenticação</title>
                 </head>
-                <body>
+                <body style="background-color: #d6e9eb;">
                     <h3>Usuário ou senha inválidos!</h3>
                     <a href="/login.html">Voltar ao Login</a>
                 </body>
